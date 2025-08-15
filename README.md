@@ -1,2 +1,2 @@
 # genAI-lab
-materi ajar peng-AI-jian-DADA
+materi ajar peng-AI-jian-DAD
