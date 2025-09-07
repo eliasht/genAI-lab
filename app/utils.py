@@ -7,10 +7,6 @@ from llama_index.llms.vertex import Vertex
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.groq import Groq
 
-# from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-# from llama_index.llms.huggingface import HuggingFaceLLM
-# from llama_index.llms.groq import Groq
-
 from config import settings
 
 
