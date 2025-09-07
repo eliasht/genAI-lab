@@ -51,52 +51,6 @@ def init_azure_openai_models():
     LlamaIndexSettings.llm = llm
 
 
-def init_vertexai_models():
-    """Inits embedding model and LLM for Google Vertex AI and configures in llama-index
-    settings.
-
-    To authenticate with GCP interactively, here are the two methods.
-    Method 1: with a user account
-    Make sure you have gcloud-cli installed and run the following commands:
-
-        gcloud auth application-default login
-        gcloud auth application-default set-quota-project <you-project-name>
-
-    Method 2: with a service account
-    Make sure you have the service account credential file available via env var:
-
-        export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/credential.json
-
-    Example:
-
-    .. code-block:: python
-
-        from llama_index.core import Settings
-        from llama_index.core.llms import ChatMessage, MessageRole
-
-        init_vertexai_models()
-        Settings.embed_model.get_text_embedding("this is a test")
-
-        Settings.llm.completion("hello")
-        Settings.llm.chat(
-            messages=[
-                ChatMessage(role=MessageRole.SYSTEM, content="Reply everything in Japanese"),
-                ChatMessage(role=MessageRole.USER, content="Hello"),
-            ]
-        )
-    """
-
-    embed_model = VertexTextEmbedding(
-        project=settings.gcp_project,
-        model_name=settings.vertexai_embed_model,
-    )
-    LlamaIndexSettings.embed_model = embed_model
-    llm = Vertex(
-        project=settings.gcp_project,
-        model=settings.vertexai_llm,
-    )
-    LlamaIndexSettings.llm = llm
-
 def init_models():
     """Inits embedding model from huggingface and LLM model from groq for configures in llama-index
     settings.
